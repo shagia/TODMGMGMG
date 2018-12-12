@@ -1,0 +1,27 @@
+body {
+        padding: 0;
+        margin: 0;
+        background-color: black;
+        color: #E0CCD1;
+    }
+    #bg {
+    	z-index: 1000;
+    	mix-blend-mode: difference;
+    	position: fixed;
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	pointer-events: none;
+    }
+    .middle{
+    	position: absolute;
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	top: 0%;
+    	bottom: 0%;
+    	height: 100%;
+    	width: 100%;
+    	font-size: 50px;
+
+    }
