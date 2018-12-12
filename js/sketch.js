@@ -20,7 +20,7 @@ function setup() {
 	song.play();
 	audioPlaying = true
 });
-  fft = new p5.FFT(0.2, 256);
+  fft = new p5.FFT(0.2, 128);
   fft.setInput(song);
 };
 
@@ -30,19 +30,19 @@ function draw() {
   fill(216, 216, 216);
   stroke(216, 216, 216, 100);
 
-  var spectrum = fft.analyze(256);
+  var spectrum = fft.analyze(128);
   //console.log(spectrum);
 
  beginShape();
 
   for (var i = 0; i < spectrum.length; i++) {
-  	var angle = map(i, 0, spectrum.length, 0, 256 * 2);
-  	var amp = spectrum[i];
+  	var angle = map(i, 0, spectrum.length, 0, 360);
+  	var amp = fft.analyze(256)[i];
   	var r = map(amp, 2, 512, 0, 500);
     var x = r * cos(angle);
     var y = r * sin(angle);
-    vertex(x, y);
-    //triangle(0, 0, x, y);
+    //vertex(x, y);
+    triangle(0, 0, x, y);
     //curveVertex(x, y);
   }
 
