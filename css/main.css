@@ -1,14 +1,21 @@
 body {
     padding: 0;
     margin: 0;
+    height: 100%;
+
     background-color: black;
     color: #E0CCD1;
 }
 
 #bg {
-    z-index: 1000;
+
     mix-blend-mode: difference;
+
     position: fixed;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,6 +33,24 @@ body {
     width: 100%;
     font-size: 50px;
 
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+.contain-item-l {
+    margin: 50px 0 50px 0;
+}
+
+.contain-item-m {
+    margin: 30px 0 30px 0;
+    max-width: 50%;
 }
 
 .head-text {
