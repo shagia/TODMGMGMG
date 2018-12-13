@@ -14,8 +14,8 @@ function setup() {
   angleMode(DEGREES);
   translate(width/2, height/2);
 
-  //song = createAudio('audio/mana.m4a');
-  song = createAudio('audio/bf.mp3');
+  song = createAudio('audio/mana.m4a');
+  //song = createAudio('audio/bf.mp3');
   document.addEventListener('click', function() {
 	song.play();
 	audioPlaying = true
