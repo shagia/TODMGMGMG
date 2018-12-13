@@ -46,6 +46,7 @@ body {
 
 .contain-item-l {
     margin: 50px 0 50px 0;
+    max-width: 50%;
 }
 
 .contain-item-m {
