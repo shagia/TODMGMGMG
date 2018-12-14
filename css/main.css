@@ -65,6 +65,7 @@ body {
     letter-spacing: 4px;
     font-family: 'Gemeos';
     font-weight: 800;
+    vertical-align: baseline;
 }
 
 .marquee-bar {
@@ -87,6 +88,7 @@ body {
     animation: marquee 25s linear infinite;
     overflow: hidden;
     display: inline-block;
+
 }
 @keyframes marquee {
     0%   { transform: translate(0, 0); }
