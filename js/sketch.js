@@ -41,7 +41,7 @@ function draw() {
   	//var amp = fft.analyze(256)[i];
     var amp = spectrum[i] / 2;
   	//var r = map(amp, 2, 512, 0, 500);
-    var r = map(amp + 20, 2, 512, 0, 400, amp);
+    var r = map(amp + 20, 2, 512, 0, 500, amp);
     var x = r * cos(angle);
     var y = r * sin(angle);
     vertex(x, y);

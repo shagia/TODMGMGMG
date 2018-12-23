@@ -3,8 +3,31 @@ body {
     margin: 0;
     height: 100%;
 
+    font-size: 100%;
+
     background-color: black;
     color: #E0CCD1;
+}
+
+@media only screen and (max-width: 480px)
+  {
+
+    .middle {
+        flex-direction: column;
+    }
+
+    .featured {
+        flex-direction: row !important;
+    }
+
+}
+
+/* svg + link positioning fix, what a mess */
+a {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+
 }
 
 #bg {
@@ -31,11 +54,10 @@ body {
     bottom: 0%;
     height: 100%;
     width: 100%;
-    font-size: 50px;
 
 }
 
-.artist-list{
+.artist-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -90,14 +112,85 @@ body {
     display: inline-block;
 
 }
+
+.detail-text {
+    text-transform: uppercase;
+    text-align: left;
+    padding-top: ;
+    padding-bottom: 2%;
+}
+
+.first-half {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+}
+
+.feat-detail img {
+    max-width: 100%;
+
+    border: 1px solid #E0CCD1;
+}
+
+.feat-detail,
+.feat-tracklist {
+
+    font-family: 'aneu';
+}
+
+.artist-logo {
+    pointer-events: none;
+    position: relative; 
+z-index: -1
+}
+
+
+
+.feat-detail {
+    max-width: 80%;
+    min-width: 10%;
+
+    font-size: 1rem;
+}
+
+.featured {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    width: 30%;
+    max-width: 30%;
+}
+
+
+
+.feat-tracklist {
+    white-space: pre-line;
+    margin: 0 0 0 0;
+    padding: 0;
+
+    display: flex;
+    text-align: left;
+
+
+}
+
+
+
 @keyframes marquee {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(0, -100%); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(0, -100%);
+    }
 }
 
 .marquee-container {
-    position: absolute;
+    position: fixed;
     /*pointer-events: none*/
 }
-
-
