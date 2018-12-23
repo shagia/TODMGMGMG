@@ -3,6 +3,13 @@
 //Inits
 var fft
 var song
+var songItems = document.getElementsByClassName("songItem");
+
+function addEventListenerList(list, event, fn) {
+    for (var i = 0, len = list.length; i < len; i++) {
+        list[i].addEventListener(event, fn, false);
+    }
+}
 //Playback
 var audioPlaying = false
 
@@ -14,14 +21,21 @@ function setup() {
   angleMode(DEGREES);
   translate(width/2, height/2);
 
-  //song = createAudio('audio/mana.m4a');
-  song = createAudio('audio/bf.mp3');
-  document.addEventListener('click', function() {
-	song.play();
-	audioPlaying = true
-});
+  
   fft = new p5.FFT(0.5, 128);
+  
+  addEventListenerList(songItems, 'click', function() {
+  console.log(this.querySelector('audio').src);
+
+  var curAudio = this.querySelector('audio').src;
+  song = createAudio(curAudio);
   fft.setInput(song);
+  song.play();
+
+});
+
+  
+  
 };
 
 function draw() {

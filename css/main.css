@@ -7,17 +7,43 @@ body {
 
     background-color: black;
     color: #E0CCD1;
+    overflow: hidden;
 }
 
-@media only screen and (max-width: 480px)
-  {
+@media only screen and (max-width: 480px) {
 
     .middle {
         flex-direction: column;
+        left: 10%;
+    }
+
+    .main-logo {
+        position: relative;
+        left: 10%;
     }
 
     .featured {
+
+        display: none !important;
         flex-direction: row !important;
+    }
+
+}
+
+@media only screen and (min-width: 1380px) {
+
+    .feat-detail {
+
+        font-size: 120% !important;
+    }
+
+}
+
+@media only screen and (min-width: 1680px) {
+
+    .feat-detail {
+
+        font-size: 140% !important;
     }
 
 }
@@ -46,7 +72,7 @@ a {
 }
 
 .middle {
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,6 +89,18 @@ a {
     margin: 0;
 }
 
+.artist {
+    border: 1px solid #E0CCD1;
+    border-radius: 5px;
+
+    transition: 0.2s ease;
+}
+
+.artist-list,
+.featured {
+    padding: 0% 2% 0% 2%;
+}
+
 
 .container {
     display: flex;
@@ -72,6 +110,7 @@ a {
     text-align: center;
 }
 
+
 .contain-item-l {
     padding: 50px 0 50px 0;
     max-width: 50%;
@@ -80,6 +119,10 @@ a {
 .contain-item-m {
     padding: 30px 0 30px 0;
     max-width: 50%;
+}
+
+.artist {
+    margin: 5% 0px 0px 0px;
 }
 
 .head-text {
@@ -141,8 +184,13 @@ a {
 
 .artist-logo {
     pointer-events: none;
-    position: relative; 
-z-index: -1
+    position: relative;
+    z-index: -1;
+    vertical-align: middle;
+}
+
+.position-fix {
+    top: 5px;
 }
 
 
@@ -173,12 +221,29 @@ z-index: -1
     padding: 0;
 
     display: flex;
+    flex-direction: column;
     text-align: left;
+}
+
+.feat-tracklist>div {
+
+    transition: 0.5s ease;
+    cursor: pointer;
+
+    padding-left: 3%;
+    padding-right: 3%;
+
+    border: 1px solid #E0CCD1;
+    border-radius: 5px;
+    margin-top: 10px;
 
 
 }
 
-
+.feat-tracklist>div:hover, .artist:hover {
+    transition: 0.2s ease;
+    box-shadow: 0px 0px 15px #E0CCD1;
+}
 
 @keyframes marquee {
     0% {
