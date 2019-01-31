@@ -1,30 +1,42 @@
 body {
     padding: 0;
     margin: 0;
-    height: 100%;
 
     font-size: 100%;
 
     background-color: black;
     color: #E0CCD1;
-    overflow: hidden;
 }
 
 @media only screen and (max-width: 480px) {
 
     .middle {
         flex-direction: column;
-        left: 10%;
+      
     }
 
     .main-logo {
         position: relative;
-        left: 10%;
+    
+    }
+
+    .feat-detail {
+
+    }
+
+    .feat-detail img {
+    display: none;
+    }
+
+    .player-container {
+        position: relative;
     }
 
     .featured {
 
-        display: none !important;
+        /* display: none !important; */
+
+        margin-top: 20px;
         flex-direction: row !important;
     }
 
@@ -48,8 +60,18 @@ body {
 
 }
 
+a:link, a:visited{
+        transition: 0.3s ease;
+        color: #E0CCD1;
+}
+
+a:hover {
+    transition: 0.3s ease;
+    letter-spacing: 2px;
+}
+
 /* svg + link positioning fix, what a mess */
-a {
+li.artist > a {
     display: inline-block;
     position: relative;
     z-index: 1;
@@ -64,10 +86,6 @@ a {
     padding: 0;
     margin: 0;
     z-index: 1000;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
     pointer-events: none;
 }
 
@@ -99,6 +117,10 @@ a {
 .artist-list,
 .featured {
     padding: 0% 2% 0% 2%;
+}
+
+.meta-text {
+    font-family: 'aneu' !important;
 }
 
 
@@ -158,16 +180,14 @@ a {
 
 .detail-text {
     text-transform: uppercase;
-    text-align: left;
-    padding-top: ;
+    text-align: center;
     padding-bottom: 2%;
 }
 
 .first-half {
     display: flex;
-    flex-wrap: wrap;
-
-    align-items: center;
+    text-align: center;
+    flex-direction: column;
 }
 
 .feat-detail img {
@@ -196,7 +216,7 @@ a {
 
 
 .feat-detail {
-    max-width: 80%;
+    max-width: 100%;
     min-width: 10%;
 
     font-size: 1rem;
@@ -238,6 +258,14 @@ a {
     margin-top: 10px;
 
 
+}
+
+.player-container {
+
+}
+
+.controls {
+    padding: 5px 0 0 0;
 }
 
 .feat-tracklist>div:hover, .artist:hover {
