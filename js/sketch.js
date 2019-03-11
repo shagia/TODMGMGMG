@@ -1,12 +1,12 @@
-//this a SHAGIA METRIC x RICCO HARVER joint
+// this a SHAGIA METRIC x RICCO HARVER joint
 
-//Inits
+// Inits
 
 var fft
 var song
 
 
-//Player widget init
+// Player widget init
 var songItems = document.getElementsByClassName("songItem");
 var playerArtist = document.getElementById("metaArtist");
 var playerSong = document.getElementById("metaSong");
@@ -16,6 +16,7 @@ var playControl = document.getElementById("playButton");
 
 
 
+// Player logic image init
 function playerControl(event) {
     if (event == false) {
         playControl.querySelector('img').src = "img/ui/pause.png";
@@ -25,18 +26,28 @@ function playerControl(event) {
 
 }
 
+// Please, always remember to GET the Audio Context first, and then check if it's running after you trigger any type of gesture, in accordance to Chrome 66, and THEN play it.
+function touchStarted() {
+  if (getAudioContext().state !== 'running') {
+    getAudioContext().resume();
+  }
+}
 
-
-//Playback
-var audioPlaying = false
-
-function setup() {
-    //tracklist interaction
+// function to add multiple listeners to classes -- really nice!
 function addEventListenerList(list, event, fn) {
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].addEventListener(event, fn, false);
     }
 }
+
+
+
+// Playback engine and meta grabbing
+var audioPlaying = false
+
+function setup() {
+    //tracklist interaction
+
     var root = createCanvas(windowWidth, windowHeight);
     root.parent('bg');
 
@@ -112,7 +123,7 @@ function addEventListenerList(list, event, fn) {
 };
 
 
-
+// The actual player logic
 playControl.addEventListener('click', function() {
     if (audioPlaying == false) {
 
@@ -129,29 +140,24 @@ playControl.addEventListener('click', function() {
     }
 })
 
+// Draw the audio spectrum! Will add a normalizer soon...
 function draw() {
 
     background(0);
     fill(216, 216, 216);
     stroke(216, 216, 216, 100);
 
-    //var spectrum = fft.analyze(128);
     var spectrum = fft.analyze(256 * 2);
-    //console.log(spectrum);
 
     beginShape();
 
     for (var i = 0; i < spectrum.length; i++) {
         var angle = map(i, 0, spectrum.length, 0, 360);
-        //var amp = fft.analyze(256)[i];
         var amp = spectrum[i] / 2;
-        //var r = map(amp, 2, 512, 0, 500);
         var r = map(amp + 20, 2, 512, 0, 500, amp);
         var x = r * cos(angle);
         var y = r * sin(angle);
         vertex(x, y);
-        //triangle(0, 0, x, y);
-        //curveVertex(x, y);
     }
 
     endShape(CLOSE);
